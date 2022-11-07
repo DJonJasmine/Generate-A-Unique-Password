@@ -183,7 +183,7 @@ function writePassword() {
     if (upperCase === true && lowerCase === true) {
       for (let i = 0; i < passwordLength; i++) {
         userChoice = upperCase[Math.floor(Math.random() * upperCase.length)];
-        console.log(typeof userChoice);
+        console.log(userChoice);
       }  
       for (let i = 0; i < passwordLength; i++) {
         userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
@@ -284,7 +284,7 @@ function writePassword() {
     if (numerics !== true && lowerCase === true) {
       for (let i = 0; i < passwordLength; i++) {
         userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
-        console.log(typeof userChoice);
+        console.log(userChoice);
       }
     }
 
@@ -292,11 +292,185 @@ function writePassword() {
       console.log(); 
     }
 
+        // Numerics and lowercase conditions
+    if (numerics === true && lowerCase !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+    }
 
+    if (numerics === true && lowerCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        console.log(userChoice);
+      }
+    }
 
-   
+    if (numerics !== true && lowerCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        console.log(userChoice);
+      }
+    }
 
+    if (numerics !== true && numerics !== true) {
+      console.log(); 
+    }
+    
+    // Numerics and uppercase conditions
+    if (numerics === true && upperCase !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (numerics === true && upperCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = upperCase[Math.floor(Math.random() * upperCase.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (numerics !== true && upperCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = upperCase[Math.floor(Math.random() * upperCase.length)];
+        console.log(userChoice);
+      }
+    }
 
+    if (numerics !== true && upperCase !== true) {
+      console.log(); 
+    }
+
+    // Numerics and special characters conditions
+    if (numerics === true && specialCharacters !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (numerics === true && specialCharacters === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (numerics !== true && specialCharacters === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+    }
+
+    if (numerics !== true && specialCharacters !== true) {
+      console.log(); 
+    }
+
+    // Special characters and lowercase conditions
+    if (specialCharacters === true && lowerCase !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters === true && lowerCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters !== true && lowerCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        console.log(userChoice);
+      }
+    }
+
+    if (specialCharacters !== true && lowerCase !== true) {
+      console.log(); 
+    }
+
+    // Special characters and uppercase conditions
+    if (specialCharacters === true && upperCase !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters === true && upperCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = upperCase[Math.floor(Math.random() * upperCase.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters !== true && upperCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = upperCase[Math.floor(Math.random() * upperCase.length)];
+        console.log(userChoice);
+      }
+    }
+
+    if (specialCharacters !== true && upperCase !== true) {
+      console.log(); 
+    }
+
+    // Special characters and numerics conditions
+    if (specialCharacters === true && numerics !== true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters === true && upperCase === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(userChoice);
+      }
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+    }
+    
+    if (specialCharacters !== true && numerics === true) {
+      for (let i = 0; i < passwordLength; i++) {
+        userChoice = numerics[Math.floor(Math.random() * numerics.length)];
+        console.log(userChoice);
+      }
+    }
+
+    if (specialCharacters !== true && numerics !== true) {
+      console.log(); 
+    }
   }
 }  
 // Function called
