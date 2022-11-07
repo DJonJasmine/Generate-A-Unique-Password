@@ -1,303 +1,104 @@
 /* 
-Rules
-True False
-True True
-False True
-False False
-
-lowercase + uppercase
-lowercase + numerics
-lowercase + special characters
-
-uppercase + lowercase
-uppercase + numerics
-uppercase + special characters
-
-numerics + lowercase
-numerics + uppercase
-numerics + special characters
-
-special characters + lowercase
-special characters + uppercase
-special characters + numerics
-
-
-
-Step 1 list variables that are needed in for the password criteria 
+ * Step 1 list variables that are needed in for the password criteria 
  - Password length (8 - 128 characters)
  - Lowercase
  - Numerics
  - Special Characters
 
-Step 2 - create prompt and confirm for password criteria
+ * Step 2 - create prompt and confirm for password criteria
 
-Step 3 - Create if statements for user selection
+ * Step 3 - Create if statements for user selection
 
 */
 
-// Assignment Code
-const generateBtn = document.querySelector('generate');
-// Password variables and values
-const passwordLength = 128,
-  lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
-  upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-  numerics = ['0', '2', '3', '4', '5', '6', '7', '8', '9'],
-  specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '~', '?', '<', '>', '/'];
+var generateBtn = document.querySelector('#generate');
+
+function generatePassword() {
+
+
+  // Password variables and values
+  let passwordLength = 0;
+  // Created a blank array for user characters inputs
+  let allCharacters = [];
+  let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  let upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+  let numerics = ['0', '1','2', '3', '4', '5', '6', '7', '8', '9'];
+  let specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '~', '?', '<', '>', '/'];
+  // Declare a boolean to track the users typeof () characters
+  let lowerChar = false;
+  let upperChar = false;
+  let numChar = false;
+  let specialChar = false;
+
+    
+
+  // User prompt and confirms for password criteria
+  passwordLength = prompt('How many password characters would you like to include? Password may be between 8 to 128 characters.');
+  console.log('passwordLength: ' + passwordLength);
+   
+  lowerChar = confirm('Do you want to include lowercase characters?');
+    
+  upperChar = confirm('Do you want to include uppercase characters?');
+    
+  numChar = confirm('Do you want to include numbers?');
+    
+  specialChar = confirm('Do you want to include special characters?');
+  // If password is not within the password criteria it wont accept input
+  if (passwordLength < 8 || passwordLength > 128 || passwordLength === "") {
+    alert("Invalid Length Entry. Length Must Be Between 8 and 128 Characters.")
+    return passwordLength;
+  }
+    
+  
+ /* 
+ *Lowercase conditions 
+ * lowerChar is original false so if true (yes selected by user) it will add lowercase
+ * characters to the blank array of allCharacter. This pertains to all conditions listed below.
+ */
+  if (lowerChar === true); {
+    allCharacters = allCharacters.concat(lowerCase);
+    console.log('allCharacters: ' + allCharacters);
+  }
+ // Uppercase conditions
+  if (upperChar === true); {
+  allCharacters = allCharacters.concat(upperCase);
+  console.log('allCharacters: ' + allCharacters);
+  }
+  // Numeric conditions
+  if (numChar === true); {
+    allCharacters = allCharacters.concat(numerics);
+    console.log('allCharacters: ' + allCharacters);
+  }
+  // special characters conditions
+  if (specialChar === true); {
+    allCharacters = allCharacters.concat(specialCharacters);
+    console.log('allCharacters: ' + allCharacters);
+  }
+
+  for (let i = 0; i < passwordLength; i++) {
+    /* password (empty) = password overwrite with previous password and add one for the loop
+    * Math random (number between 0 - 1)* all characters.length, Math.floor round that decimal 
+    * number to a whole number. That whole number will be the number the character falls on.
+    * This will continue until the password length the user chose.
+    */
+    password = password + allCharacters[Math.floor(Math.random() * allCharacters.length)];
+  }
+  console.log(password);
+  // Return password to the input text
+  return password
       
- // Write password to the #password input
+
+
+}
+
+// Write password to the #password input
 function writePassword() {
-  let password = generatePassword(); {
-   const passwordText = document.querySelector('password');
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-   passwordText.value = password;
-  }
+  passwordText.value = password;
 
- // Add event listener to generate button
-  generateBtn.addEventListener('click', writePassword); 
+}
 
-  function generatePassword() {
-
-    const password = '';
-
-   // User prompt and confirms for password criteria
-    const userPasswordLength = prompt('How many password characters would you like to include? Password may be between 8 to 128 characters.');
-    console.log(userPasswordLength);
-
-    const lowerCase = confirm('Do you want to include lowercase characters?');
-    
-    const upperCase = confirm('Do you want to include uppercase characters?');
-    
-    const numerics = confirm('Do you want to include numbers?');
-    
-    const specialCharacters = confirm('Do you want to include special characters?');
-    
-    console.log(lowerCase + upperCase + numerics + specialCharacters);
-    
-    const randomLowerCase = Math.floor(Math.random() * lowerCase.length);
-
-    console.log(randomLowerCase);
-
-    const randomUpperCase = Math.floor(Math.random() * upperCase.length);
-
-    console.log(randomUpperCase);
-
-    const randomNumerics = Math.floor(Math.random() * numerics.length);
-
-    console.log(randomNumerics);
-
-    const randomSpecialCharacters = Math.floor(Math.random() * specialCharacters.length);
-
-    console.log(randomSpecialCharacters);
-  
-    if (passwordLength < 8 || passwordLength > 128) {
-      alert('Invalid Entry');
-      return passwordLength;
-    }
-  
-    // lowercase and uppercase conditions 
-    if (lowerCase === true && upperCase !== true); {
-     for (let i = 0; i < passwordLength; i++); 
-    }
-  
-    if (lowerCase === true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase !== true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++);
-    }
-
-    if (lowerCase !== true && upperCase !== true); 
-  
-   // lowercase and numerics conditions 
-    if (lowerCase === true && numerics !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase === true && numerics === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase !== true && numerics === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase !== true && numerics !== true); {
-      console.log();
-    }
-  
- // Lowercase and special characters conditions   
-    if (lowerCase === true && specialCharacters !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase === true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++);    
-    }
-
-    if (lowerCase !== true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (lowerCase !== true && specialCharacters !== true); {
-      console.log();
-    }
-
-    // Uppercase and lowercase conditions
-    if (upperCase === true && lowerCase !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase === true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase !== true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    } 
-  
-    if (upperCase !== true && lowerCase !== true); {
-     console.log();
-    } 
-
-    // Uppercase and numerics conditions
-    if (upperCase === true && numerics !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase === true && numerics === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase !== true && numerics === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase !== true && numerics !== true); 
-
-    // Uppercase and special characters
-    if (upperCase === true && specialCharacters !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase === true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase !== true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (upperCase !== true && specialCharacters !== true); 
-
-    // Numerics and lowercase conditions
-    if (numerics === true && lowerCase !== true); {
-      for (let i = 0; i < passwordLength; i++);
-    }
-
-    if (numerics === true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && numerics !== true); 
-
-    // Numerics and lowercase conditions
-    if (numerics === true && lowerCase !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics === true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && numerics !== true); 
-    
-    // Numerics and uppercase conditions
-    if (numerics === true && upperCase !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (numerics === true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (numerics !== true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && upperCase !== true); 
-
-    // Numerics and special characters conditions
-    if (numerics === true && specialCharacters !== true); {
-      for (let i = 0; i < passwordLength; i++);
-    }
-    
-    if (numerics === true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (numerics !== true && specialCharacters === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (numerics !== true && specialCharacters !== true); 
-
-    // Special characters and lowercase conditions
-    if (specialCharacters === true && lowerCase !== true); {
-      for (let i = 0; i < passwordLength; i++);
-    }
-    
-    if (specialCharacters === true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (specialCharacters !== true && lowerCase === true); {
-      for (let i = 0; i < passwordLength; i++);
-    }
-
-    if (specialCharacters !== true && lowerCase !== true); 
-
-    // Special characters and uppercase conditions
-    if (specialCharacters === true && upperCase !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (specialCharacters === true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (specialCharacters !== true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-
-    if (specialCharacters !== true && upperCase !== true); 
-
-    // Special characters and numerics conditions
-    if (specialCharacters === true && numerics !== true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (specialCharacters === true && upperCase === true); {
-      for (let i = 0; i < passwordLength; i++); 
-    }
-    
-    if (specialCharacters !== true && numerics === true); {
-      for (let i = 0; i < passwordLength; i++); 
-      
-    }
-
-    if (specialCharacters !== true && numerics !== true); 
-
-    console.log(password);
-  }
-}  
- // Function called
- writePassword();
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
