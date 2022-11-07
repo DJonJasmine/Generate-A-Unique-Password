@@ -24,7 +24,7 @@ function generatePassword() {
   let upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   let numerics = ['0', '1','2', '3', '4', '5', '6', '7', '8', '9'];
   let specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '~', '?', '<', '>', '/'];
-  // Declare a boolean to track the users typeof () characters
+  // Declare a boolean to track the users typeof () characters, will be used for conditions
   let lowerChar = false;
   let upperChar = false;
   let numChar = false;
