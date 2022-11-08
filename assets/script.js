@@ -13,6 +13,7 @@
 
 var generateBtn = document.querySelector('#generate');
 
+
 function generatePassword() {
 
 
@@ -33,57 +34,66 @@ function generatePassword() {
     
 
   // User prompt and confirms for password criteria
-  passwordLength = prompt('How many password characters would you like to include? Password may be between 8 to 128 characters.');
-  console.log('passwordLength: ' + passwordLength);
-   
-  lowerChar = confirm('Do you want to include lowercase characters?');
-    
-  upperChar = confirm('Do you want to include uppercase characters?');
-    
-  numChar = confirm('Do you want to include numbers?');
-    
-  specialChar = confirm('Do you want to include special characters?');
-  // If password is not within the password criteria it wont accept input
+  passwordLength = prompt('How many password characters would you like to include? Password may be between 8 to 128 characters.')
+  
   if (passwordLength < 8 || passwordLength > 128 || passwordLength === "") {
     alert("Invalid Length Entry. Length Must Be Between 8 and 128 Characters.")
-    return passwordLength;
+    return ;
   }
+  console.log('passwordLength: ' + passwordLength)
+  
+  lowerChar = confirm('Do you want to include lowercase characters?')
     
+  upperChar = confirm('Do you want to include uppercase characters?')
+    
+  numChar = confirm('Do you want to include numbers?')
+  
+  specialChar = confirm('Do you want to include special characters?')
+  // If password is not within the password criteria it wont accept input
+
   
  /* 
  *Lowercase conditions 
  * lowerChar is original false so if true (yes selected by user) it will add lowercase
  * characters to the blank array of allCharacter. This pertains to all conditions listed below.
  */
-  if (lowerChar === true); {
-    allCharacters = allCharacters.concat(lowerCase);
-    console.log('allCharacters: ' + allCharacters);
+  if (lowerChar === true) {
+    console.log(lowerChar)
+
+    allCharacters = allCharacters.concat(lowerCase)
+    console.log('allCharacters: ' + allCharacters)
   }
  // Uppercase conditions
-  if (upperChar === true); {
-  allCharacters = allCharacters.concat(upperCase);
-  console.log('allCharacters: ' + allCharacters);
+  if (upperChar === true) {
+    console.log(upperChar)
+  allCharacters = allCharacters.concat(upperCase)
+  console.log('allCharacters: ' + allCharacters)
   }
   // Numeric conditions
-  if (numChar === true); {
-    allCharacters = allCharacters.concat(numerics);
-    console.log('allCharacters: ' + allCharacters);
+  if (numChar === true) {
+    console.log(numChar)
+
+    allCharacters = allCharacters.concat(numerics)
+    console.log('allCharacters: ' + allCharacters)
   }
   // special characters conditions
-  if (specialChar === true); {
-    allCharacters = allCharacters.concat(specialCharacters);
-    console.log('allCharacters: ' + allCharacters);
-  }
+  if (specialChar === true) {
+    console.log(specialChar)
 
+    allCharacters = allCharacters.concat(specialCharacters)
+    console.log('allCharacters: ' + allCharacters)
+  }    
+
+let password = ''
   for (let i = 0; i < passwordLength; i++) {
     /* password (empty) = password overwrite with previous password and add one for the loop
     * Math random (number between 0 - 1)* all characters.length, Math.floor round that decimal 
     * number to a whole number. That whole number will be the number the character falls on.
     * This will continue until the password length the user chose.
     */
-    password = password + allCharacters[Math.floor(Math.random() * allCharacters.length)];
+    password += allCharacters[Math.floor(Math.random() * allCharacters.length)]
   }
-  console.log(password);
+  console.log(password)
   // Return password to the input text
   return password
       
@@ -93,12 +103,17 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword()
+  console.log('password' + password)
+  var passwordText = document.querySelector("#password")
+  console.log(passwordText);
 
-  passwordText.value = password;
+  passwordText.value = password
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)
+
+
+
