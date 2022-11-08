@@ -31,14 +31,12 @@ function generatePassword() {
   let numChar = false;
   let specialChar = false;
 
-    
-
   // User prompt and confirms for password criteria
   passwordLength = prompt('How many password characters would you like to include? Password may be between 8 to 128 characters.')
-  
+  // If password is not within the password criteria it wont accept input
   if (passwordLength < 8 || passwordLength > 128 || passwordLength === "") {
     alert("Invalid Length Entry. Length Must Be Between 8 and 128 Characters.")
-    return ;
+    return 
   }
   console.log('passwordLength: ' + passwordLength)
   
@@ -49,8 +47,6 @@ function generatePassword() {
   numChar = confirm('Do you want to include numbers?')
   
   specialChar = confirm('Do you want to include special characters?')
-  // If password is not within the password criteria it wont accept input
-
   
  /* 
  *Lowercase conditions 
@@ -84,7 +80,7 @@ function generatePassword() {
     console.log('allCharacters: ' + allCharacters)
   }    
 
-let password = ''
+  let password = ''
   for (let i = 0; i < passwordLength; i++) {
     /* password (empty) = password overwrite with previous password and add one for the loop
     * Math random (number between 0 - 1)* all characters.length, Math.floor round that decimal 
@@ -96,9 +92,6 @@ let password = ''
   console.log(password)
   // Return password to the input text
   return password
-      
-
-
 }
 
 // Write password to the #password input
