@@ -10,9 +10,9 @@ A password generator website for your personal use. This password generator will
 
 ## Badges
 
-https://img.shields.io/github/languages/count/DJonJasmine/Generate-A-Unique-Password
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/DJonJasmine/Generate-A-Unique-Password">
 
-https://img.shields.io/github/license/DJonJasmine/Generate-A-Unique-Password
+<img alt="GitHub" src="https://img.shields.io/github/license/DJonJasmine/Generate-A-Unique-Password">
 
 ## Visuals
 
